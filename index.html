@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فخور بيكي دايماً</title>
+    <meta name="theme-color" content="#FAF9F6">
+    <meta name="description" content="A special cinematic experience.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="music-player glass">
+        <button id="toggle-music">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path class="play-icon" d="M8 5v14l11-7z" style="display: none;"/>
+                <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+        </button>
+        <audio id="bg-audio" loop>
+            <source src="assets/music/bg-music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <section id="lock-screen" class="screen">
+        <div class="lock-container glass">
+            <h2 class="lock-title">عشان نفتح الباب لذكرياتنا...</h2>
+            <p class="lock-subtitle">دخلي تاريخ النهارده (يوم ما خلصتي امتحانات)</p>
+            <div class="input-group">
+                <input type="text" id="password-input" placeholder="DD / MM / YYYY" maxlength="10" autocomplete="off">
+            </div>
+            <p id="error-msg" class="error-msg">التاريخ مش صح، جربي تاني يا حبيبتي.</p>
+        </div>
+    </section>
+
+    <section id="intro-screen" class="screen hidden">
+        <div class="intro-text">
+            <h1 class="intro-phrase">غمضي عينيكي ثانية...</h1>
+            <h1 class="intro-phrase">وخدي نفس عميق...</h1>
+            <h1 class="intro-phrase">أخيراً... عملتيها.</h1>
+        </div>
+    </section>
+
+    <main id="main-content" class="hidden">
+        
+        <section class="hero section-padding">
+            <div class="hero-content">
+                <h1 class="hero-headline glow-text">أنا فخور بيكي.</h1>
+                <p class="hero-paragraph">
+                    عارف إن الأيام اللي فاتت مكنتش سهلة، وعارف إنك تعبتي وسهرتي كتير... بس أنا طول عمري مؤمن بيكي. انت أقوى من أي ضغط مريتي بيه، والنهاردة أنا فخور بيكي أكتر من أي وقت فات. مبروك يا بطلة قلبي إنك خلصتي ثانوية عامة.
+                </p>
+            </div>
+        </section>
+
+        <section class="journey section-padding">
+            <h2 class="section-title">رحلتك اللي خلتني أحبك أكتر</h2>
+            <div class="timeline">
+                <div class="timeline-item glass card-hover">
+                    <h3>أيام الضغط</h3>
+                    <p>كنت بشوفك بتذاكري وتعبانة، وكان بيصعب عليا، بس كنت عارف إنك هتقدري لأنك مبهرة ومفيش حاجة تقف قصادك.</p>
+                </div>
+                <div class="timeline-item glass card-hover">
+                    <h3>الامتحانات</h3>
+                    <p>كل امتحان كان بيعدي، كنت بشوفك بتبقي أقوى. كنت بدعيلك من كل قلبي في كل لحظة وواثق إن ربنا هيجبر بخاطرك.</p>
+                </div>
+                <div class="timeline-item glass card-hover">
+                    <h3>النهاردة</h3>
+                    <p>١٦ / ٠٧ / ٢٠٢٦... يوم ما بطلتي خلصت امتحاناتها، وبداية جديدة لأحلى أيام جاية هنعيشها سوا.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="letter section-padding">
+            <div class="letter-container glass">
+                <h2 class="section-title">جواب عمري ما هزهق من كتابته</h2>
+                <div class="letter-content">
+                    <p>يا أجمل حاجة حصلتلي في دنيتي، ويا أهدى وأحن قلب عرفته،</p>
+                    
+                    <p>أنا عارف إن السنة دي مكنتش مجرد شهور بتعدي، دي كانت رحلة طويلة، وحرب نفسية وبدنية تقيلة أوي عليكي. كنت بشوفك وانت بتصحي كل يوم من 8 الصبح، بتجري على مذكرتك ودروسك وانت لسه أصلاً محتاجة تنامي وترتاحي. كنت بشوف مكتبك اللي مليان ورق وكتب ومذكرات في كل حتة، وكنت بشوف قد إيه انت بتعافري عشان تخلصي اللي عليكي.</p>
+
+                    <p>شفت تعبك، وشفت إرهاقك. شفت اللحظات اللي كنتي بتنهاري فيها من الضغط وتقولي "أنا حاسة إني ناسية كل حاجة" أو "أنا خايفة ومفيش طاقة أكمل". شفت الهالات اللي تحت عينيكي من كتر قلة النوم والتفكير والقلق.. بس عارفة؟ حتى في قمة تعبك وانهيارك وتوترك ده، كنتي في عيني أجمل وأقوى بنت في الدنيا. كنت بشوف فيكي بطلة بتعافر عشان حلمها، وكنت ببقى عايز أخدك في حضني وأخبيكي من كل الضغط ده وأشيله عنك.</p>
+                    
+                    <p>أنا عايزك تعرفي وتتأكدي، إن فخري بيكي عمره ما كان ولا هيكون مربوط بورقة امتحان، ولا بمجموع، ولا بتنسيق كلية. أنا فخور بالبنت اللي حاربت، ومستسلمتش. فخور بروحك الحلوة اللي حتى في عز التعب كانت بتخطف قلبي وتخليني أطمن بيكي. انت عملتي اللي عليكي وزيادة، وربنا عمره ما هيضيع تعبك وصحيانك من 8 الصبح ده أبداً، لأنه عالم بنيتك وبمجهودك اللي محدش شافه قده.</p>
+                    
+                    <p>النهاردة انت مش بس بتخلصي امتحانات.. انت بتطوي صفحة كانت من أصعب صفحات حياتك، وبتقفلي باب تعب وضغط، عشان تفتحي باب لأيامنا الحلوة اللي جاية. خلاص يا حبيبتي، مفيش صحيان بدري غصب عنك، مفيش تأنيب ضمير وانت نايمة أو وانت خارجة تفرحي. الأيام اللي جاية كلها دلع، وراحة، وضحك من القلب، وأوقات هعوضك فيها عن كل لحظة ضغط وحرمان مريتي بيها في ثانوية عامة.</p>
+                    
+                    <p>عايزك تاخدي نفس عميق، تريحي ضهرك، وتطمني بجد. لأنك مش لوحدك وعمرك ما هتكوني لوحدك. زي ما كنت قاعد على أعصابي وبدعيلك من كل قلبي وانت جوا اللجان، هفضل دايماً ضهرك، وأمانك، والسند اللي ترتاحي عليه من دوشة الدنيا. هفضل دايماً هنا، أول حد بيسقفلك، وأول حد بيطبطب عليكي في زعلك قبل فرحك.</p>
+                    
+                    <p>اضحكي وافرحي، انت تستحقي تفرحي وتستحقي يتفرشلك الأرض ورد. كل يوم بيعدي بكتشف قد إيه أنا محظوظ إن قلبي اختارك، وإنك نصيبي الحلو من الدنيا. بحبك في تعبك قبل راحتك، وبحبك وانت بتعافري، وبحبك النهاردة أضعاف أضعاف امبارح، وهفضل أحبك لحد آخر يوم في عمري.</p>
+                    
+                    <p>انت تستحقي تكوني فخورة بنفسك... زي ما أنا طول عمري، وهفضل طول عمري، فخور بيكي.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="finale section-padding">
+            <div class="finale-content">
+                <button id="final-btn" class="magnetic-btn glass">حاجة كمان...</button>
+            </div>
+        </section>
+
+    </main>
+
+    <section id="surprise-screen" class="screen hidden">
+        <div class="stars-bg"></div>
+        
+        <div class="surprise-content">
+            <h1 class="final-message msg-1">عمري ما هبطل أفتخر بيكي.</h1>
+            <h1 class="final-message msg-2">كل يوم بيعدي بتأكد إنك أعظم إنجاز في حياتي.</h1>
+            <h1 class="final-message msg-3">انت تستحقي كل حاجة حلوة في الدنيا.</h1>
+            <h1 class="final-message msg-4">أنا بحبك أكتر من أي كلام أقدر أقوله.</h1>
+        </div>
+
+        <button id="close-surprise" class="magnetic-btn glass close-btn">نرجع لذكرياتنا</button>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
